@@ -1,11 +1,10 @@
-function anuidade(mes, valorAnuidade) {
-    for(i = mes; i >= 12; i++) {
-        valorPorMes = jurosCompostos(valorAnuidade, 5)
-    }   
+function anuidade(mes, valor) {
+    if(mes > 0 && mes < 13) {
+        atraso = mes - 1
+        return (valor * Math.pow(1 + (5/100), atraso)).toFixed(2)
+    } else {
+        return 'Mês inválido'
+    }
 }
 
-jurosCompostos = (capitalInicial, taxaJuros, tempoAplicacao) => {
-    return (capitalInicial * Math.pow(1 + taxaJuros, tempoAplicacao)).toFixed(2)
-}  
-
-anuidade(1, 500)
+console.log(anuidade(4, 100))
